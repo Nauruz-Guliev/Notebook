@@ -31,12 +31,13 @@ public class App extends Application {
     public void init() {
         notes = new String[INIT_SIZE];
         sc = new Scanner(System.in);
-        commandNames = new String[]{"add", "readAll", "exit", "deleteAll"};
+        commandNames = new String[]{"add", "readAll", "exit", "deleteAll", "deleteNote"};
         commands = new Command[]{
                 new AddCommand(this),
                 new ReadAllCommand(this),
                 new ExitCommand(),
-                new DeleteAllCommand(this)
+                new DeleteAllCommand(this),
+                new DeleteNoteCommand(this)
         };
         CLUI = new CommandLineUserInteractor();
         array = new ArrayStorage(notes);

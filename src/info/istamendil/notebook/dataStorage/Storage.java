@@ -4,4 +4,5 @@ public interface Storage {
     void save(String note) throws StorageException;
     String[] readAll() throws StorageException;
     void deleteAll() throws StorageException;
+    void deleteNote(String str) throws StorageException;
 }

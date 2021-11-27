@@ -1,8 +1,5 @@
 package info.istamendil.notebook.dataStorage;
 
-
-import java.sql.SQLOutput;
-
 public class ArrayStorage implements Storage{
     private int notesCount;
     private final String[] notes;
@@ -22,11 +19,22 @@ public class ArrayStorage implements Storage{
         return notes;
     }
     public void deleteAll() throws StorageException{
-        int i = 0;
         try {
-            while (notes[i] != null) {
-                notes[i] = null;
-                i++;
+            for (int i = 0; i< notes.length; i++) {
+                if (notes[i] != null) {
+                    notes[i] = null;
+                }
+            }
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+    }
+    public void deleteNote(String str) throws StorageException {
+        try {
+            for (int i = 0; i < notes.length; i++) {
+                if (str.equals(notes[i])) {
+                    notes[i] = null;
+                }
             }
         } catch (Exception ex) {
             System.out.println(ex);
