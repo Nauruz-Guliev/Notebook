@@ -1,7 +1,6 @@
-package info.istamendil.notebook.utils.commands;
+package info.istamendil.notebook.command;
 
 import info.istamendil.notebook.App;
-import info.istamendil.notebook.dataStorage.ArrayStorage;
 
 public class AddCommand implements Command {
     private final App app;
@@ -11,8 +10,12 @@ public class AddCommand implements Command {
     }
     @Override
     public Object execute() {
-        note = app.getUserInteractor().readCommand(app.getScanner());
-        app.getStorage().save(note);
+        try {
+            note = app.getUserInteractor().readCommand(app.getScanner());
+            app.getStorage().save(note);
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
         return null;
     }
 }

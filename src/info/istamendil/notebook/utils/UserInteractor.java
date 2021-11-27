@@ -1,4 +1,4 @@
-package info.istamendil.notebook.utils.commands;
+package info.istamendil.notebook.utils;
 
 import java.util.Scanner;
 

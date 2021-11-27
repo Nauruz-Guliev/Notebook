@@ -1,4 +1,4 @@
-package info.istamendil.notebook.utils.commands;
+package info.istamendil.notebook.command;
 
 import info.istamendil.notebook.App;
 
@@ -9,7 +9,11 @@ public class ReadAllCommand implements Command {
     }
     @Override
     public Object execute() {
-        app.getUserInteractor().print(app.getStorage().readAll());
+        try {
+            app.getUserInteractor().print(app.getStorage().readAll());
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
         return null;
     }
 }

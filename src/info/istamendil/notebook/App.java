@@ -2,7 +2,8 @@ package info.istamendil.notebook;
 
 
 import info.istamendil.notebook.dataStorage.ArrayStorage;
-import info.istamendil.notebook.utils.commands.*;
+import info.istamendil.notebook.utils.*;
+import info.istamendil.notebook.command.*;
 
 import java.util.Scanner;
 

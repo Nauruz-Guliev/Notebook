@@ -1,4 +1,4 @@
-package info.istamendil.notebook.utils.commands;
+package info.istamendil.notebook.command;
 
 import info.istamendil.notebook.App;
 
@@ -9,11 +9,12 @@ public class DeleteAllCommand implements Command {
     }
     @Override
     public Object execute() {
-        int i = 0;
-        while (app.getStorage().readAll()[i] != null) {
-            app.getStorage().readAll()[i] = null;
+        try {
+            app.getStorage().deleteAll();
+            app.getUserInteractor().print(app.getStorage().readAll());
+        } catch (Exception ex) {
+            System.out.println(ex);
         }
-        app.getUserInteractor().print(app.getStorage().readAll());
         return null;
     }
 }

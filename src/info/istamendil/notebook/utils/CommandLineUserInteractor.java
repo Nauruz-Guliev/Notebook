@@ -1,4 +1,4 @@
-package info.istamendil.notebook.utils.commands;
+package info.istamendil.notebook.utils;
 
 import java.util.Scanner;
 
@@ -14,10 +14,10 @@ public class CommandLineUserInteractor implements UserInteractor {
     @Override
     public void print(String[] notes) {
         System.out.print(">> ");
-        int i = 0;
-        while (notes[i] != null) {
-            System.out.print(notes[i] + " ");
-            i++;
+        for (String note : notes) {
+            if (note != null) {
+                System.out.print(note + " ");
+            }
         }
         System.out.println();
     }
